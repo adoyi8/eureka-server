@@ -90,11 +90,10 @@ public class AuthorizationControllerTest {
     @Test
     @WithAnonymousUser
     public void unAuthorizedUser() throws Exception {
-        System.out.println(jwt());
+
         mvc
-                .perform(get("/user").with(jwt())).andExpect(status().isOk());
-
-
+                .perform(get("/user").with(jwt())).andExpect(status().isAccepted());
+        System.out.println("Hi");
 
     }
 
