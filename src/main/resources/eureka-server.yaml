@@ -1,0 +1,24 @@
+# Configure this Discovery Server
+spring:
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: 488774613763-e45lhnencbqf9rvkcqp9o01gs370qqeo.apps.googleusercontent.com
+            client-secret: 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
+            scope: openid,profile,email
+      resourceserver:
+        jwt:
+          issuer-uri: https://accounts.google.com
+          jwk-set-uri: https://www.googleapis.com/oauth2/v3/certs
+eureka:
+  instance:
+    hostname: localhost
+  client:  # Not a client, don't register with yourself (unless running
+    # multiple discovery servers for redundancy)
+    registerWithEureka: false
+    fetchRegistry: false
+
+server:
+  port: 1111   # HTTP (Tomcat) port
